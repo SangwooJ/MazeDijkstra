@@ -18,8 +18,8 @@ void printAdj(int G[MAX][MAX]);
 
 int main()
 {
-	int G[MAX][MAX], i, j, n, u; //G는 엣지들의 비용정보를 담고있음
-	Maze map[SIZE][SIZE] = {
+	int G[MAX][MAX], i, j, n, u; //G는 엣지들의 값 담고있음
+	Maze map[SIZE][SIZE] = { // 초기 맵 생성
 		{ { 1,0 },{ 1,0 },{ 3,0 },{ 4,0 } },
 		{ { 0,0 },{ 3,0 },{ 0,0 },{ 2,0 } },
 		{ { 0,0 },{ 5,0 },{ 0,0 },{ 1,0 } },
