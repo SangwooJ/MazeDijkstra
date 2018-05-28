@@ -28,7 +28,7 @@ int main()
 	
 	setMazeNode(map); //노드번호 할당
 	initAdj(G); //엣지 초기화
-	setAdj(map, G); //엣지에 값할당 
+	setAdj(map, G); // 맵으로 부터 엣지에 값할당 
 	printf("\n");
 	printAdj(G);
 
