@@ -18,8 +18,8 @@ void printAdj(int G[MAX][MAX]);
 
 int main()
 {
-	int G[MAX][MAX], i, j, n, u; //G는 엣지들의 값 담고있음
-	Maze map[SIZE][SIZE] = { // 초기 맵 생성
+	int G[MAX][MAX], i, j, n, u; //G는 엣지들의 비용정보를 담고있음
+	Maze map[SIZE][SIZE] = {
 		{ { 1,0 },{ 1,0 },{ 3,0 },{ 4,0 } },
 		{ { 0,0 },{ 3,0 },{ 0,0 },{ 2,0 } },
 		{ { 0,0 },{ 5,0 },{ 0,0 },{ 1,0 } },
@@ -28,7 +28,7 @@ int main()
 	
 	setMazeNode(map); //노드번호 할당
 	initAdj(G); //엣지 초기화
-	setAdj(map, G); // 맵으로 부터 엣지에 값할당 
+	setAdj(map, G); //엣지에 값할당 
 	printf("\n");
 	printAdj(G);
 
@@ -87,7 +87,7 @@ void setAdj(Maze map[SIZE][SIZE], int G[MAX][MAX]) { //edge 에 값할당
 					if (map[i - 1][j].nodeNum != 0) { //존재하면
 						temp = map[i - 1][j].nodeNum;
 						temp2 = map[i][j].nodeNum;
-						if(temp>temp2) 
+						if(temp<temp2) 
 							G[temp][temp2] = map[i][j].mazeType;
 						else
 							G[temp][temp2] = map[i - 1][j].mazeType;
@@ -97,7 +97,7 @@ void setAdj(Maze map[SIZE][SIZE], int G[MAX][MAX]) { //edge 에 값할당
 					if (map[i + 1][j].nodeNum != 0) {
 						temp = map[i + 1][j].nodeNum;
 						temp2 = map[i][j].nodeNum;
-						if (temp>temp2)
+						if (temp<temp2)
 							G[temp][temp2] = map[i][j].mazeType;
 						else
 							G[temp][temp2] = map[i + 1][j].mazeType;
@@ -107,7 +107,7 @@ void setAdj(Maze map[SIZE][SIZE], int G[MAX][MAX]) { //edge 에 값할당
 					if (map[i][j-1].nodeNum != 0) {
 						temp = map[i][j-1].nodeNum;
 						temp2 = map[i][j].nodeNum;
-						if (temp>temp2)
+						if (temp<temp2)
 							G[temp][temp2] = map[i][j].mazeType;
 						else
 							G[temp][temp2] = map[i][j - 1].mazeType;
@@ -117,7 +117,7 @@ void setAdj(Maze map[SIZE][SIZE], int G[MAX][MAX]) { //edge 에 값할당
 					if (map[i][j+1].nodeNum != 0) {
 						temp = map[i][j+1].nodeNum;
 						temp2 = map[i][j].nodeNum;
-						if (temp>temp2)
+						if (temp<temp2)
 							G[temp][temp2] = map[i][j].mazeType;
 						else
 							G[temp][temp2] = map[i][j + 1].mazeType;
